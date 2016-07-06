@@ -54,7 +54,7 @@ common_words = {'RD':'ROAD', 'HWY' : 'HIGHWAY', 'ST':'STREET',
 
 The rest, like PATH stations: Exchange Place, Twenty Third St, RIT Roosevelt stations or aforementioned ORCHARD BEACH, I had to work out manually.
 
-[Lauren Oldja](http://laurenoldja.net/) suggested the easiest and most descriptive way to represent turnstile data using cartodb.com. For this I aggregated data for each station for different lines and control units that recorded exits and entries. Values for exits and entries had to be preprocessed, since the counters were never reset. Students were suggested to use the first record of the day, 1:00am, for most days as a benchmark to recalculate the absolute data.
+[Lauren Oldja](http://laurenoldja.net/) suggested the easiest and most descriptive way to represent turnstile data using cartodb.com. For this I aggregated data for each station for different lines and control units that recorded exits and entries. Values for exits and entries had to be preprocessed, since the counters were never reset. Students were suggested to use the first record of the day, 1:00am, for most days as a benchmark to recalculate the absolute values.
 
 Cartodb has an amazing tool for projecting your static or continuous data on the map. Below are some examples. This is the first view on solving the problem and finding the target stations. You can look at the heat map changes over time as stations accumulate number of entries for the day of 06/18/2016
 
@@ -69,8 +69,8 @@ And a static view for a change for the number of entries through turnstile for o
 
 Later my group came out with the recipe for the clients to calculate an index, for each station which would be used by clients in order to make decisions and choose "the most important" stations. This criteria would use entries or exits values, number of colleges within a quarter mile radius and number of tech companies within certain proximity.
 
-begin{displaymath}
-$$c =w_MTA * N_MTA + w_corp * N_corp + w_edu * N_edu$$
+\begin{displaymath}
+c =w_MTA * N_MTA + w_corp * N_corp + w_edu * N_edu
 \end{displaymath}
   
 
