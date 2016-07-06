@@ -19,37 +19,23 @@ There were about 500 stations, and regex was something still to perfect, so I re
 
 | MTA Station | GTFS Station | Latitude | Longitude |
 |:--------|:-------:|--------:|--------:|
-| cell1   | cell2   | cell3   |
-| cell4   | cell5   | cell6   |
-|----
-| cell1   | cell2   | cell3   |
-| cell4   | cell5   | cell6   |
-|=====
-| Foot1   | Foot2   | Foot3
-{: rules="groups"}
-
-+----------------+------------------------+------------+-------------+
-|  MTA Station   |    GTFS Station        |  Latitude  |  Longitude  | 
-|----------------|------------------------|------------|-------------|
 | 5 AV/59      |  5TH AVENUE - 59 ST|  40.764811  |  -73.973347  |
 | 57 ST-7 AV     |  57TH STREET / 7TH AVENUE (MIDTOWN)  |  40.764664  |  -73.980658   |
 | TIMES SQ-42 ST |TIMES  SQ. SHUTTLE - 42 ST|  40.755983  |  -73.986229  |
 | 23 ST     | 23RD STREET | 40.745906 |  -73.998041  |
 | 14 ST-UNION SQ | 14TH STREET - LEXINGTON - UNION SQ |  40.734673  |  -73.989951 |
-
+|=====
+{: rules="groups"}
 
 
 Still I had other 50 station names that needed to be matched.
-
 
 ```
 
     Could not match  KINGS HWY
     Could not match  BAY PKWY
-    Could not match  FAR ROCKAWAY
     Could not match  182-183 STS
     ould not match  GUN HILL RD
-    Could not match  225 ST
     Could not match  FLATBUSH AV-B.C
 
 ```
