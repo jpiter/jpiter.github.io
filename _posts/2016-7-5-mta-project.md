@@ -2,13 +2,6 @@
 layout: post
 title: Today's Entry
 ---
-
-<iframe width="100%" height="520" frameborder="0" src="https://peter-gray-rasmussen.cartodb.com/viz/5f63c8ce-38e9-11e6-bdfd-0ea31932ec1d/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
-
-![_config.yml]({{ site.baseurl }}/images/config.png)
-
-The easiest way to make your first post is to edit this one. Go into /_posts/ and update the Hello World markdown file. For more instructions head over to the [Jekyll Now repository](https://github.com/barryclark/jekyll-now) on GitHub.
-
 ![turnstile2](https://farm8.staticflickr.com/7541/15217776574_846f1afdc4_b.jpg)
 
 ## Mission Impossible. MTA turnstile data.
@@ -135,10 +128,16 @@ common_words = {'RD':'ROAD', 'HWY' : 'HIGHWAY', 'ST':'STREET', 'STS': ' STREET',
 The rest, like PATH stations: Exchange Place, Twenty Third St, RIT Roosevelt stations or aforementioned ORCHARD BEACH, I had to work out manually.
 
 
-
 Lauren Oldja suggested the easiest and most descriptive way to represent turnstile data using cartodb.com. For this I aggregated data for each station for different lines and control units that recorded exits and entries. Values for exits and entries had to be preprocessed, since the counters were never reset. Students were suggested to use the first record of the day, 1:00am, for most days as a benchmark to recalculate the absolute data.
 
-Cartodb has an amazing tool for projecting your static or  continuous data on the map. Below are some examples. This is the first view on solving the problem and finding the target stations.
+Cartodb has an amazing tool for projecting your static or continuous data on the map. Below are some examples. This is the first view on solving the problem and finding the target stations. You can look at the heat map changes over time as stations accumulate number of entries for the day of 06/18/2016
+
+<iframe width="100%" height="520" frameborder="0" src="https://jpiterbarg.cartodb.com/viz/5d964966-43a9-11e6-8279-0ea31932ec1d/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+
+And a static view for a change:
+
+![cartodbmap2]https://github.com/jpiter/jpiter.github.io/blob/master/_posts/mta_160618_1_by_jpiterbarg_07_06_2016_03_18_44%20(1).png
+
 
 Later my group came out with the recipe for the clients to calculate an index, for each station which would be used by clients in order to make decisions and choose "the most important" stations. This criteria would use entries or exits values, number of colleges within a quarter mile radius and number of tech companies within some radius.
 
@@ -146,3 +145,7 @@ $$c =w_MTA * N_MTA + w_corp * N_corp + w_edu * N_edu$$
 
 
 The weights in the formular can be changed and customized per client. The most important question is how to normalize the data. My group suggested to consider morning, afternoon, and evening shifts for the day, and analyze them separately. One of suggestion was to use an absolute maximum acrooss all stations and days of the week per time shift. My concern is whether normalization by maximum will produce non-robust results and potentially pick up outlier values. In this case, I suggest in the future to consider trimmed data for exits and entries.
+
+
+![_config.yml]({{ site.baseurl }}/images/config.png)
+
