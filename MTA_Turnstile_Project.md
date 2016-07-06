@@ -130,7 +130,7 @@ Lauren Oldja suggested the easiest and most descriptive way to represent turnsti
 
 Cartodb has an amazing tool for projecting your static or  continuous data on the map. Below are some examples. This is the first view on solving the problem and finding the target stations.
 
-![heat_map](<iframe width="100%" height="520" frameborder="0" src="https://jpiterbarg.cartodb.com/viz/5d964966-43a9-11e6-8279-0ea31932ec1d/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>?raw=true)
+<iframe width="100%" height="520" frameborder="0" src="https://jpiterbarg.cartodb.com/viz/5d964966-43a9-11e6-8279-0ea31932ec1d/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
 Later my group came out with the recipe for the clients to calculate an index, for each station which would be used by clients in order to make decisions and choose "the most important" stations. This criteria would use entries or exits values, number of colleges within a quarter mile radius and number of tech companies within some radius.
 
