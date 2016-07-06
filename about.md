@@ -12,4 +12,4 @@ Student at [Metis Data Science](http://www.thisismetis.com/)
 
 ### Contact me
 
-[email@domain.com](jpiterbarg@gmail.com)
+[jpiterbarg@gmail.com]
