@@ -1,5 +1,7 @@
 
-# Mission Impossible. MTA turnstile data.
+![turnstile2](https://farm8.staticflickr.com/7541/15217776574_846f1afdc4_b.jpg)
+
+## Mission Impossible. MTA turnstile data.
 
 My first week at a data science bootcamp can be compared only with the first swimming experience. Racing against time, exhausting resources and patience while working on project Benson, was not my first choice of spending the first week at Metis. I am used to face predictable difficulties  - the choice of prior distributin or MCMC sampler, amortization schedule for certain mortgage backed securities or hedging products for credit derivatives. This time I simply lacked coding tools to solve the problem and did not have time to focus on modeling issues.
 
@@ -109,9 +111,9 @@ There were about 500 stations, and regex was something still to perfect, so I re
     Could not match  BEVERLY RD
     Could not match  FLATBUSH AV-B.C
 
+```
 
-Some of these I were able to match by introducing a dictionary.
-
+Some of these I was able to match by introducing a dictionary of commonly used abreviations.
 
 ```python
 common_words = {'RD':'ROAD', 'HWY' : 'HIGHWAY', 'ST':'STREET', 'STS': ' STREET',
@@ -120,19 +122,17 @@ common_words = {'RD':'ROAD', 'HWY' : 'HIGHWAY', 'ST':'STREET', 'STS': ' STREET',
 
 ```
 
-
-```python
-The rest, like PATH, RIT Roosevelt stations or aforementioned ORCHARD BEACH  I had to work out manually.
-```
+The rest, like PATH stations: Exchange Place, Twenty Third St, RIT Roosevelt stations or aforementioned ORCHARD BEACH, I had to work out manually.
 
 
 
-Lauren Oldja then suggested the easiest and most descriptive way to represent turnstile data using cartodb.com. For this I aggregated data for each station for different lines and control units that recorded exits and entries. Values for exits and entries had to be preprocessed, since the counters were never reset. I used the first record of the day, 1:00am, for most days as a benchmark to recalculate the absolute data.
+Lauren Oldja suggested the easiest and most descriptive way to represent turnstile data using cartodb.com. For this I aggregated data for each station for different lines and control units that recorded exits and entries. Values for exits and entries had to be preprocessed, since the counters were never reset. Students were suggested to use the first record of the day, 1:00am, for most days as a benchmark to recalculate the absolute data.
 
-Cartodb has an amazing tool for projecting your data static or continuous on the map. Below are some examples. This is the first view on solving the problem and finding the target stations.
+Cartodb has an amazing tool for projecting your static or  continuous data on the map. Below are some examples. This is the first view on solving the problem and finding the target stations.
 
-My group came out with the recipe for the clients: calculate an index, for each station which would be used by clients in order to make decisions and choose "the most important" stations. This criteria would use entries or exits values, number of colleges within a quarter mile radius and number of tech companies within the same radius.
+Later my group came out with the recipe for the clients to calculate an index, for each station which would be used by clients in order to make decisions and choose "the most important" stations. This criteria would use entries or exits values, number of colleges within a quarter mile radius and number of tech companies within some radius.
 
-formula.
+$$c =w_MTA * N_MTA + w_corp * N_corp + w_edu * N_edu$$
+
 
 The weights in the formular can be changed and customized per client. The most important question is how to normalize the data. My group suggested to consider morning, afternoon, and evening shifts for the day, and analyze them separately. One of suggestion was to use an absolute maximum acrooss all stations and days of the week per time shift. My concern is whether normalization by maximum will produce non-robust results and potentially pick up outlier values. In this case, I suggest in the future to consider trimmed data for exits and entries.
