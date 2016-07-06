@@ -4,11 +4,11 @@ title: Mission Impossible. MTA turnstile data.
 ---
 ![turnstile2](https://farm8.staticflickr.com/7541/15217776574_846f1afdc4_b.jpg)
 
-My first week at a data science bootcamp can be compared only with the first swimming experience. Racing against time, exhausting resources and patience while working on project Benson, was not my first choice of spending the first week at Metis. I am used to face predictable difficulties  - the choice of prior distributin or MCMC sampler, amortization schedule for certain mortgage backed securities or hedging products for credit derivatives. This time I simply lacked coding tools to solve the problem and did not have time to focus on modeling issues.
+My first week at a data science bootcamp can be compared only with the first swimming experience. Racing against time, exhausting resources and patience working on project Benson, was not my first choice of spending the first week at Metis. I am used to face predictable difficulties  - the choice of prior distributin or MCMC sampler, amortization schedule for mortgage securities, or hedging strategies for credit derivatives. This time I simply lacked coding skills and did not have time to focus on modeling issues.
 
-The goal was to help a prospective Women Tech Women Yes organization to raise money and awareness for their cause by analyzing MTA turnstile data and to make suggestion on where and when to place canvassers to hand out flyers for upcoming fundrasing event.
+The goal  - to help a prospective Women Tech Women Yes organization to raise money and awareness for their cause by analyzing MTA turnstile data and to make suggestion on where and when to place canvassers to hand out flyers for upcoming fundrasing event.
 
-The data was easy to find and download: http://web.mta.info/developers/turnstile.html. As a beginner student with quite modest knowledge of Python, I tried to take small steps and work my way through with the group of four other classmates. Most of my time I focused on matching station names in MTA data to geographical coordinates, which turned out to be an ardious task.
+The data was easy to find and download: http://web.mta.info/developers/turnstile.html. As a beginner student with quite modest knowledge of Python, I tried to train my methods on data collected for the week of 06/11/2016. Most of the time I focused on matching station names in MTA data to geographical coordinates, which turned out to be an ardious task.
 
 It turns out there are a lot of databases that match stations to coordinates, for example here is the data from [City of New York](https://data.cityofnewyork.us/Transportation/Subway-Entrances/drex-xx56). The question is how many of those can you match to station names in MTA turnstile data? 
 
@@ -54,7 +54,7 @@ common_words = {'RD':'ROAD', 'HWY' : 'HIGHWAY', 'ST':'STREET',
 
 The rest, like PATH stations: Exchange Place, Twenty Third St, RIT Roosevelt stations or aforementioned ORCHARD BEACH, I had to work out manually.
 
-Lauren Oldja suggested the easiest and most descriptive way to represent turnstile data using cartodb.com. For this I aggregated data for each station for different lines and control units that recorded exits and entries. Values for exits and entries had to be preprocessed, since the counters were never reset. Students were suggested to use the first record of the day, 1:00am, for most days as a benchmark to recalculate the absolute data.
+[Lauren Oldja](http://laurenoldja.net/) suggested the easiest and most descriptive way to represent turnstile data using cartodb.com. For this I aggregated data for each station for different lines and control units that recorded exits and entries. Values for exits and entries had to be preprocessed, since the counters were never reset. Students were suggested to use the first record of the day, 1:00am, for most days as a benchmark to recalculate the absolute data.
 
 Cartodb has an amazing tool for projecting your static or continuous data on the map. Below are some examples. This is the first view on solving the problem and finding the target stations. You can look at the heat map changes over time as stations accumulate number of entries for the day of 06/18/2016
 
@@ -67,10 +67,12 @@ And a static view for a change for the number of entries through turnstile for o
 ![cartodbmap2](https://github.com/jpiter/jpiter.github.io/blob/master/_posts/mtacolorplex.png?raw=true)
 
 
-Later my group came out with the recipe for the clients to calculate an index, for each station which would be used by clients in order to make decisions and choose "the most important" stations. This criteria would use entries or exits values, number of colleges within a quarter mile radius and number of tech companies within some radius.
+Later my group came out with the recipe for the clients to calculate an index, for each station which would be used by clients in order to make decisions and choose "the most important" stations. This criteria would use entries or exits values, number of colleges within a quarter mile radius and number of tech companies within certain proximity.
 
-  $$c =w_MTA * N_MTA + w_corp * N_corp + w_edu * N_edu$$
+begin{displaymath}
+$$c =w_MTA * N_MTA + w_corp * N_corp + w_edu * N_edu$$
+\end{displaymath}
+  
 
-The weights in the formular can be changed and customized per client. The most important question is how to normalize the data. My group suggested to consider morning, afternoon, and evening shifts for the day, and analyze them separately. One of suggestion was to use an absolute maximum acrooss all stations and days of the week per time shift. My concern is whether normalization by maximum will produce non-robust results and potentially pick up outlier values. In this case, I suggest in the future to consider trimmed data for exits and entries.
-
+The weights in the formular can be changed and customized per client. My group suggested to consider morning, afternoon, and evening shifts for the day, and analyze them separately. The most important question is how to normalize the data. One of suggestion was to use an absolute maximum acrooss all stations and days of the week per time shift. Will normalization by maximum produce non-robust results and potentially pick up outlier values? Can we used a trimmed data? Can we use a z-score normalization? All these questions are valid, but are delayed for the future.
 
