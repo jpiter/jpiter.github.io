@@ -12,9 +12,9 @@ The data was easy to find and download: http://web.mta.info/developers/turnstile
 
 It turns out there are a lot of databases that match stations to coordinates, for example here is the data from [City of New York](https://data.cityofnewyork.us/Transportation/Subway-Entrances/drex-xx56). The question is how many of those can you match to station names in MTA turnstile data? 
 
-MTA exploited non-cosistent abbreviations for streets, avenues and parkways: WHITEHALL S-FRY, ATL AV-BARCLAY, 5 AV/59 ST, ORCHARD BEACH, EASTN PKWY-MUSM, 82 ST-JACKSON H. To add to my frustration some stations like ORCHARD BEACH, line 6, or path stations are not in any database.
+MTA exploited non-cosistent abbreviations for streets, avenues and parkways: WHITEHALL S-FRY, ATL AV-BARCLAY, 5 AV/59 ST, EASTN PKWY-MUSM. To add to my frustration some stations like ORCHARD BEACH, line 6, or PATH stations are not in any database.
 
-There were about 500 stations, and regex was something still to perfect, so I resorted to searching for a better dataset to match coordinates. The next [data]([http://web.mta.info/developers/sbwy_entrance.html) I found from MTA website itself was very promising. Unfortunately, it turns out MTA is not very consistent with its own dictionaries and I still could not match more than a hundred stations. Luckily, I stumbled upon a thread in a [google MTA developers group](https://groups.google.com/forum/#!topic/mtadeveloperresources/rUnkyRQDN3s) from 2010 which gave a link to an [open spreadsheet](https://docs.google.com/spreadsheets/d/10sz0xWODQ02Kemx6ovS0NLQ_gA0YV9YQtdD7uiCcyjI/edit?hl=en&authkey=CMTzrvwE#gid=4) that provided the closest possible match I could find. Still using regex, I was able to get down to about 60 station names that still needed somework.
+There were about 500 stations, and regex was something still to perfect, so I resorted to searching for a better dataset to match coordinates. The next [data]([http://web.mta.info/developers/sbwy_entrance.html) I found from MTA website itself was very promising. Unfortunately, it turns out MTA is not very consistent with its own dictionaries and I still could not match more than a hundred stations. Luckily, I stumbled upon a thread in a [google MTA developers group](https://groups.google.com/forum/#!topic/mtadeveloperresources/rUnkyRQDN3s) from 2010 which gave a link to an [open spreadsheet](https://docs.google.com/spreadsheets/d/10sz0xWODQ02Kemx6ovS0NLQ_gA0YV9YQtdD7uiCcyjI/edit?hl=en&authkey=CMTzrvwE#gid=4) that provided the closest possible match I could find. Still using regex I was able to get most of them. 
 
 <div>
 <table border="1" class="dataframe">
@@ -97,19 +97,16 @@ There were about 500 stations, and regex was something still to perfect, so I re
 </table>
 </div>
 
+Still I had other 50 station names that needed to be matched.
 
 ```
 
-    Could not match  CITY HALL
     Could not match  KINGS HWY
     Could not match  BAY PKWY
-    Could not match  ROCKAWAY BLVD
     Could not match  FAR ROCKAWAY
     Could not match  182-183 STS
     ould not match  GUN HILL RD
     Could not match  225 ST
-    Could not match  PARKCHESTER
-    Could not match  BEVERLY RD
     Could not match  FLATBUSH AV-B.C
 
 ```
