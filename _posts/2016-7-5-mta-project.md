@@ -17,15 +17,9 @@ MTA exploited non-cosistent abbreviations for streets, avenues and parkways: WHI
 There were about 500 stations, and regex was something still to perfect, so I resorted to searching for a better dataset to match coordinates. The next [data]([http://web.mta.info/developers/sbwy_entrance.html) I found from MTA website itself was very promising. Unfortunately, it turns out MTA is not very consistent with its own dictionaries and I still could not match more than a hundred stations. Luckily, I stumbled upon a thread in a [google MTA developers group](https://groups.google.com/forum/#!topic/mtadeveloperresources/rUnkyRQDN3s) from 2010 which gave a link to an [open spreadsheet](https://docs.google.com/spreadsheets/d/10sz0xWODQ02Kemx6ovS0NLQ_gA0YV9YQtdD7uiCcyjI/edit?hl=en&authkey=CMTzrvwE#gid=4) that provided the closest possible match I could find. Still using regex I was able to get most of them. 
 
 
-
 +----------------+------------------------+------------+-------------+
-
-
 |  MTA Station   |    GTFS Station        |  Latitude  |  Longitude  | 
-
 |----------------|------------------------|------------|-------------|
-
-
 | 5 AV/59      |  5TH AVENUE - 59 ST|  40.764811  |  -73.973347  |
 | 57 ST-7 AV     |  57TH STREET / 7TH AVENUE (MIDTOWN)  |  40.764664  |  -73.980658   |
 | TIMES SQ-42 ST |TIMES  SQ. SHUTTLE - 42 ST|  40.755983  |  -73.986229  |
@@ -73,7 +67,7 @@ Cartodb has an amazing tool for projecting your static or continuous data on the
 And a static view for a change.
 
 
-![cartodbmap2]( https://github.com/jpiter/jpiter.github.io/blob/master/_posts/mtacolorplex.png )
+![cartodbmap2](https://github.com/jpiter/jpiter.github.io/blob/master/_posts/mtacolorplex.png?raw=true)
 
 
 Later my group came out with the recipe for the clients to calculate an index, for each station which would be used by clients in order to make decisions and choose "the most important" stations. This criteria would use entries or exits values, number of colleges within a quarter mile radius and number of tech companies within some radius.
