@@ -16,72 +16,19 @@ MTA exploited non-cosistent abbreviations for streets, avenues and parkways: WHI
 
 There were about 500 stations, and regex was something still to perfect, so I resorted to searching for a better dataset to match coordinates. The next [data]([http://web.mta.info/developers/sbwy_entrance.html) I found from MTA website itself was very promising. Unfortunately, it turns out MTA is not very consistent with its own dictionaries and I still could not match more than a hundred stations. Luckily, I stumbled upon a thread in a [google MTA developers group](https://groups.google.com/forum/#!topic/mtadeveloperresources/rUnkyRQDN3s) from 2010 which gave a link to an [open spreadsheet](https://docs.google.com/spreadsheets/d/10sz0xWODQ02Kemx6ovS0NLQ_gA0YV9YQtdD7uiCcyjI/edit?hl=en&authkey=CMTzrvwE#gid=4) that provided the closest possible match I could find. Still using regex I was able to get most of them. 
 
-<div>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>
-      <th>MTA Station</th>
-      <th>stop_id</th>
-      <th>GTFS Station</th>
-      <th>stop_lat</th>
-      <th>stop_lon</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>396</th>
-      <td>5 AV/59 ST</td>
-      <td>R13</td>
-      <td>5TH AVENUE - 59 ST</td>
-      <td>40.764811</td>
-      <td>-73.973347</td>
-    </tr>
-    <tr>
-      <th>984</th>
-      <td>57 ST-7 AV</td>
-      <td>R14</td>
-      <td>57TH STREET / 7TH AVENUE (MIDTOWN)</td>
-      <td>40.764664</td>
-      <td>-73.980658</td>
-    <tr>
-    <tr>
-      <th>2492</th>
-      <td>TIMES SQ-42 ST</td>
-      <td>902</td>
-      <td>TIMES  SQ. SHUTTLE - 42 ST</td>
-      <td>40.755983</td>
-      <td>-73.986229</td>
-    </tr>
-    <tr>
-      <th>2884</th>
-      <td>34 ST-HERALD SQ</td>
-      <td>D17</td>
-      <td>34TH STREET - HERALD SQ</td>
-      <td>40.749719</td>
-      <td>-73.987823</td>
-    </tr>
-    <tr>
-      <th>3870</th>
-      <td>23 ST</td>
-      <td>A30</td>
-      <td>23RD STREET</td>
-      <td>40.745906</td>
-      <td>-73.998041</td>
-    </tr>
-    <tr>
-      <th>4458</th>
-      <td>14 ST-UNION SQ</td>
-      <td>635</td>
-      <td>14TH STREET - LEXINGTON - UNION SQ</td>
-      <td>40.734673</td>
-      <td>-73.989951</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+
+| MTA Station  | GTFS Station | Latitude | Longitude | 
+|--------------|--------------|---- -----|-----------|
+| 5 AV/59      |  5TH AVENUE - 59 ST| 40.764811 | -73.973347|
+| 57 ST-7 AV     | 57TH STREET / 7TH AVENUE (MIDTOWN) | 40.764664 | -73.980658</td>  |
+| TIMES SQ-42 ST |TIMES  SQ. SHUTTLE - 42 ST| 40.755983 | -73.986229 |
+| 23 ST     | 23RD STREET | 40.745906 |  -73.998041 |
+| 14 ST-UNION SQ | 14TH STREET - LEXINGTON - UNION SQ | 40.734673 | -73.989951|
+
+
 
 Still I had other 50 station names that needed to be matched.
+
 
 ```
 
@@ -96,6 +43,7 @@ Still I had other 50 station names that needed to be matched.
 ```
 
 Some of these I was able to match by introducing a dictionary of commonly used abreviations.
+
 
 ```python
 common_words = {'RD':'ROAD', 'HWY' : 'HIGHWAY', 'ST':'STREET', 'STS': ' STREET',
@@ -112,12 +60,15 @@ Cartodb has an amazing tool for projecting your static or continuous data on the
 
 <iframe width="100%" height="520" frameborder="0" src="https://jpiterbarg.cartodb.com/viz/5d964966-43a9-11e6-8279-0ea31932ec1d/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
+
 And a static view for a change.
+
 
 ![cartodbmap2](https://github.com/jpiter/jpiter.github.io/blob/master/_posts/mtacolorplex.png)
 
 
 Later my group came out with the recipe for the clients to calculate an index, for each station which would be used by clients in order to make decisions and choose "the most important" stations. This criteria would use entries or exits values, number of colleges within a quarter mile radius and number of tech companies within some radius.
+
 
 $$c =w_MTA * N_MTA + w_corp * N_corp + w_edu * N_edu$$
 
