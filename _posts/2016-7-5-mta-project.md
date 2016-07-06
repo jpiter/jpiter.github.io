@@ -18,12 +18,13 @@ There were about 500 stations, and regex was something still to perfect, so I re
 
 
 | MTA Station  | GTFS Station | Latitude | Longitude | 
+
 |--------------|--------------|---- -----|-----------|
-| 5 AV/59      |  5TH AVENUE - 59 ST| 40.764811 | -73.973347|
-| 57 ST-7 AV     | 57TH STREET / 7TH AVENUE (MIDTOWN) | 40.764664 | -73.980658</td>  |
-| TIMES SQ-42 ST |TIMES  SQ. SHUTTLE - 42 ST| 40.755983 | -73.986229 |
-| 23 ST     | 23RD STREET | 40.745906 |  -73.998041 |
-| 14 ST-UNION SQ | 14TH STREET - LEXINGTON - UNION SQ | 40.734673 | -73.989951|
+| 5 AV/59      |  5TH AVENUE - 59 ST|  40.764811  |  -73.973347  |
+| 57 ST-7 AV     |  57TH STREET / 7TH AVENUE (MIDTOWN)  |  40.764664  |  -73.980658   |
+| TIMES SQ-42 ST |TIMES  SQ. SHUTTLE - 42 ST|  40.755983  |  -73.986229  |
+| 23 ST     | 23RD STREET | 40.745906 |  -73.998041  |
+| 14 ST-UNION SQ | 14TH STREET - LEXINGTON - UNION SQ |  40.734673  |  -73.989951 |
 
 
 
@@ -46,9 +47,11 @@ Some of these I was able to match by introducing a dictionary of commonly used a
 
 
 ```python
-common_words = {'RD':'ROAD', 'HWY' : 'HIGHWAY', 'ST':'STREET', 'STS': ' STREET',
-                'PKWY':'PARKWAY','HTS':'HEIGHTS', 'HW':'HIGHWAY', 'SQ':'SQUARE', 
-                'AV':'AVENUE', 'BLVD' : 'BOULEVARD', 'SNDVW':'SOUNDVIEW', 'B.C':'BROOKLYN COLLEGE'}
+common_words = {'RD':'ROAD', 'HWY' : 'HIGHWAY', 'ST':'STREET',
+                'STS': ' STREET','PKWY':'PARKWAY','HTS':'HEIGHTS',
+                'HW':'HIGHWAY', 'SQ':'SQUARE','AV':'AVENUE',
+                'BLVD' : 'BOULEVARD', 'SNDVW':'SOUNDVIEW', 
+                'B.C':'BROOKLYN COLLEGE'}
 
 ```
 
@@ -64,7 +67,7 @@ Cartodb has an amazing tool for projecting your static or continuous data on the
 And a static view for a change.
 
 
-![cartodbmap2](https://github.com/jpiter/jpiter.github.io/blob/master/_posts/mtacolorplex.png)
+![cartodbmap2]( https://github.com/jpiter/jpiter.github.io/blob/master/_posts/mtacolorplex.png )
 
 
 Later my group came out with the recipe for the clients to calculate an index, for each station which would be used by clients in order to make decisions and choose "the most important" stations. This criteria would use entries or exits values, number of colleges within a quarter mile radius and number of tech companies within some radius.
