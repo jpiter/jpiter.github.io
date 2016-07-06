@@ -69,12 +69,8 @@ And a static view for a change for the number of entries through turnstile for o
 
 Later my group came out with the recipe for the clients to calculate an index, for each station which would be used by clients in order to make decisions and choose "the most important" stations. This criteria would use entries or exits values, number of colleges within a quarter mile radius and number of tech companies within some radius.
 
-{% raw %}
   $$c =w_MTA * N_MTA + w_corp * N_corp + w_edu * N_edu$$
- {% endraw %}
 
 The weights in the formular can be changed and customized per client. The most important question is how to normalize the data. My group suggested to consider morning, afternoon, and evening shifts for the day, and analyze them separately. One of suggestion was to use an absolute maximum acrooss all stations and days of the week per time shift. My concern is whether normalization by maximum will produce non-robust results and potentially pick up outlier values. In this case, I suggest in the future to consider trimmed data for exits and entries.
 
-
-![_config.yml]({{ site.baseurl }}/images/config.png)
 
