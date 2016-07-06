@@ -1,10 +1,8 @@
 ---
 layout: post
-title: Today's Entry
+## Mission Impossible. MTA turnstile data.
 ---
 ![turnstile2](https://farm8.staticflickr.com/7541/15217776574_846f1afdc4_b.jpg)
-
-## Mission Impossible. MTA turnstile data.
 
 My first week at a data science bootcamp can be compared only with the first swimming experience. Racing against time, exhausting resources and patience while working on project Benson, was not my first choice of spending the first week at Metis. I am used to face predictable difficulties  - the choice of prior distributin or MCMC sampler, amortization schedule for certain mortgage backed securities or hedging products for credit derivatives. This time I simply lacked coding tools to solve the problem and did not have time to focus on modeling issues.
 
@@ -12,11 +10,11 @@ The goal was to help a prospective Women Tech Women Yes organization to raise mo
 
 The data was easy to find and download: http://web.mta.info/developers/turnstile.html. As a beginner student with quite modest knowledge of Python, I tried to take small steps and work my way through with the group of four other classmates. Most of my time I focused on matching station names in MTA data to geographical coordinates, which turned out to be an ardious task.
 
-It turns out there are a lot of databases that match stations to coordinates, for example https://data.cityofnewyork.us/Transportation/Subway-Entrances/drex-xx56. The question is how many of those can you match to station names in MTA turnstile data? 
+It turns out there are a lot of databases that match stations to coordinates, for example here is the data from [City of New York](https://data.cityofnewyork.us/Transportation/Subway-Entrances/drex-xx56). The question is how many of those can you match to station names in MTA turnstile data? 
 
 MTA exploited non-cosistent abbreviations for streets, avenues and parkways: WHITEHALL S-FRY, ATL AV-BARCLAY, 5 AV/59 ST, ORCHARD BEACH, EASTN PKWY-MUSM, 82 ST-JACKSON H. To add to my frustration some stations like ORCHARD BEACH, line 6, or path stations are not in any database.
 
-There were about 500 stations, and regex was something still to perfect, so I resorted to searching for a better dataset to match coordinates. The next data I found - http://web.mta.info/developers/sbwy_entrance.html from MTA website itself was very promising. Unfortunately, it turns out MTA is not very consistent with its own dictionaries, I still could not match more than a hundred stations. Luckily, I stumbled upon a thread in a google group for MTA developers from 2010 https://groups.google.com/forum/#!topic/mtadeveloperresources/rUnkyRQDN3s, which gave a link to an open source spreadsheet that provided the closest possible match I could find https://docs.google.com/spreadsheets/d/10sz0xWODQ02Kemx6ovS0NLQ_gA0YV9YQtdD7uiCcyjI/edit?hl=en&authkey=CMTzrvwE#gid=4 Still using regex, I was able to get down to about 60 station names that still needed somework.
+There were about 500 stations, and regex was something still to perfect, so I resorted to searching for a better dataset to match coordinates. The next [data]([http://web.mta.info/developers/sbwy_entrance.html) I found from MTA website itself was very promising. Unfortunately, it turns out MTA is not very consistent with its own dictionaries and I still could not match more than a hundred stations. Luckily, I stumbled upon a thread in a [google MTA developers group](https://groups.google.com/forum/#!topic/mtadeveloperresources/rUnkyRQDN3s) from 2010 which gave a link to an [open spreadsheet](https://docs.google.com/spreadsheets/d/10sz0xWODQ02Kemx6ovS0NLQ_gA0YV9YQtdD7uiCcyjI/edit?hl=en&authkey=CMTzrvwE#gid=4) that provided the closest possible match I could find. Still using regex, I was able to get down to about 60 station names that still needed somework.
 
 <div>
 <table border="1" class="dataframe">
@@ -134,9 +132,9 @@ Cartodb has an amazing tool for projecting your static or continuous data on the
 
 <iframe width="100%" height="520" frameborder="0" src="https://jpiterbarg.cartodb.com/viz/5d964966-43a9-11e6-8279-0ea31932ec1d/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
-And a static view for a change:
+And a static view for a change.
 
-![cartodbmap2]https://github.com/jpiter/jpiter.github.io/blob/master/_posts/mta_160618_1_by_jpiterbarg_07_06_2016_03_18_44%20(1).png
+![cartodbmap2](https://github.com/jpiter/jpiter.github.io/blob/master/_posts/mta_160618_1_by_jpiterbarg_07_06_2016_03_18_44%20(1).png)
 
 
 Later my group came out with the recipe for the clients to calculate an index, for each station which would be used by clients in order to make decisions and choose "the most important" stations. This criteria would use entries or exits values, number of colleges within a quarter mile radius and number of tech companies within some radius.
