@@ -5,6 +5,7 @@ title: Mission Impossible. MTA turnstile data.
 ![turnstile2](https://farm8.staticflickr.com/7541/15217776574_846f1afdc4_b.jpg)
 
 My first week at a data science bootcamp can be compared only with the first swimming experience. Racing against time, exhausting resources and patience working on project Benson, was not my first choice of spending the first week at Metis. I am used to face predictable difficulties  - the choice of prior distributin or MCMC sampler, amortization schedule for mortgage securities, or hedging strategies for credit derivatives. This time I simply lacked coding skills and did not have time to focus on modeling issues.
+{: style="text-align: justify"}
 
 The goal  - to help a prospective Women Tech Women Yes organization to raise money and awareness for their cause by analyzing MTA turnstile data and to make suggestion on where and when to place canvassers to hand out flyers for upcoming fundrasing event.
 
