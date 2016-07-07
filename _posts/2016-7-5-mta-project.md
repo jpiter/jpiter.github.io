@@ -13,7 +13,7 @@ I am used to face predictable difficulties  - the choice of prior distributin or
 The goal  - to help a prospective Women Tech Women Yes organization to raise money and awareness for their cause by analyzing MTA turnstile data and to make suggestion on where and when to place canvassers to hand out flyers for upcoming fundrasing event.
 {: style="text-align: justify"}
 
-The data was easy to find and download: [MTA Turnstile Data]http://web.mta.info/developers/turnstile.html. As a beginner student with quite modest knowledge of Python, I tried to train my methods on data collected for the week of 06/11/2016. Most of the time I focused on matching station names in MTA data to geographical coordinates, which turned out to be an ardious task.
+The data was easy to find and download: [MTA Turnstile Data](http://web.mta.info/developers/turnstile.html). As a beginner student with quite modest knowledge of Python, I tried to train my methods on data collected for the week of 06/11/2016. Most of the time I focused on matching station names in MTA data to geographical coordinates, which turned out to be an ardious task.
 {: style="text-align: justify"}
 
 It turns out there are a lot of databases that match stations to coordinates, for example here is the data from [City of New York](https://data.cityofnewyork.us/Transportation/Subway-Entrances/drex-xx56). The question is how many of those can you match to station names in MTA turnstile data? 
