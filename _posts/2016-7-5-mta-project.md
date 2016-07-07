@@ -82,7 +82,8 @@ And a static view for a change for the number of entries through turnstile for o
 Later my group came out with the recipe for our clients to calculate citeria to find stations that fit the best their needs. This criteria would use entries or exits values, number of colleges within a quarter mile radius and number of tech companies within certain proximity.
 {: style="text-align: justify"}
 
-$$ c = w_{MTA} \times N_{MTA} + w_{corp} \times N_{corp} + w_edu \times N_edu $$
+c = Wmta*Xmta + Wcorp*Xcorp + Wedu*Xedu
+{: style="text-align: center"}
 
 The weights in the formular can be changed and customized per client. My group suggested to consider morning, afternoon, and evening shifts for the day, and analyze them separately. The most important question is how to normalize the data. One of suggestion was to use an absolute maximum acrooss all stations and days of the week per time shift. Will normalization by maximum produce non-robust results and potentially pick up outlier values? Can we used a trimmed data? Can we use a z-score normalization? All these questions are valid, but are delayed for the future as "Project Luther" was announced.
 {: style="text-align: justify"}
