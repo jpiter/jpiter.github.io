@@ -64,7 +64,7 @@ The rest, like PATH stations: Exchange Place, Twenty Third St, RIT Roosevelt sta
 [Lauren Oldja](http://laurenoldja.net/) suggested the easiest and most descriptive way to represent turnstile data using cartodb.com. For this I aggregated data for each station for different lines and control units that recorded exits and entries. Values for exits and entries had to be preprocessed, since the counters were never reset. Students were suggested to use the first record of the day, 1:00am, for most days as a benchmark to recalculate the absolute values.
 {: style="text-align: justify"}
 
-Cartodb has an amazing tool for projecting your static or continuous data on the map. Below are some examples. This is the first view on solving the problem and finding the target stations. You can look at the heat map changes over time as stations accumulate number of entries for the day of 06/18/2016.
+Cartodb has an amazing tool for projecting your static or continuous data on the map. Below are some examples. This is the first view on solving the problem and finding the target stations. You can look at the heat map changes over time as stations accumulate number of entries for the day of 06/15/2016.
 {: style="text-align: justify"}
 
 <iframe width="100%" height="520" frameborder="0" src="https://jpiterbarg.cartodb.com/viz/5d964966-43a9-11e6-8279-0ea31932ec1d/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
@@ -79,9 +79,7 @@ And a static view for a change for the number of entries through turnstile for o
 Later my group came out with the recipe for the clients to calculate an index, for each station which would be used by clients in order to make decisions and choose "the most important" stations. This criteria would use entries or exits values, number of colleges within a quarter mile radius and number of tech companies within certain proximity.
 {: style="text-align: justify"}
 
-$$ 
-c = w_{MTA} \times N_{MTA} + w_{corp} \times N_{corp} + w_edu \times N_edu 
-$$
+$$ c = w_{MTA} \times N_{MTA} + w_{corp} \times N_{corp} + w_edu \times N_edu $$
 
 The weights in the formular can be changed and customized per client. My group suggested to consider morning, afternoon, and evening shifts for the day, and analyze them separately. The most important question is how to normalize the data. One of suggestion was to use an absolute maximum acrooss all stations and days of the week per time shift. Will normalization by maximum produce non-robust results and potentially pick up outlier values? Can we used a trimmed data? Can we use a z-score normalization? All these questions are valid, but are delayed for the future.
 {: style="text-align: justify"}
