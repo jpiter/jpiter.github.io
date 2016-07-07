@@ -4,7 +4,10 @@ title: Mission Impossible. MTA turnstile data.
 ---
 ![turnstile2](https://farm8.staticflickr.com/7541/15217776574_846f1afdc4_b.jpg)
 
-My first week at a data science bootcamp can be compared only with the first swimming experience - racing against time, exhausting resources and patience. "Project Benson" overtook all twenty five newly drafted data science students. I am used to face predictable difficulties  - the choice of prior distributin or MCMC sampler, amortization schedule for mortgage securities, or hedging strategies for credit derivatives. This time I simply lacked coding skills and did not have time to focus on modeling issues.
+My first week at a data science bootcamp can be compared only with the first swimming experience - racing against time, exhausting resources and patience. "Project Benson" overtook all twenty five newly drafted data science students. 
+{: style="text-align: justify"}
+
+I am used to face predictable difficulties  - the choice of prior distributin or MCMC sampler, amortization schedule for mortgage securities, or hedging strategies for credit derivatives. This time I simply lacked coding skills, hence did not have time to focus on modeling issues.
 {: style="text-align: justify"}
 
 The goal  - to help a prospective Women Tech Women Yes organization to raise money and awareness for their cause by analyzing MTA turnstile data and to make suggestion on where and when to place canvassers to hand out flyers for upcoming fundrasing event.
@@ -81,6 +84,6 @@ Later my group came out with the recipe for our clients to calculate citeria to 
 
 $$ c = w_{MTA} \times N_{MTA} + w_{corp} \times N_{corp} + w_edu \times N_edu $$
 
-The weights in the formular can be changed and customized per client. My group suggested to consider morning, afternoon, and evening shifts for the day, and analyze them separately. The most important question is how to normalize the data. One of suggestion was to use an absolute maximum acrooss all stations and days of the week per time shift. Will normalization by maximum produce non-robust results and potentially pick up outlier values? Can we used a trimmed data? Can we use a z-score normalization? All these questions are valid, but are delayed for the future.
+The weights in the formular can be changed and customized per client. My group suggested to consider morning, afternoon, and evening shifts for the day, and analyze them separately. The most important question is how to normalize the data. One of suggestion was to use an absolute maximum acrooss all stations and days of the week per time shift. Will normalization by maximum produce non-robust results and potentially pick up outlier values? Can we used a trimmed data? Can we use a z-score normalization? All these questions are valid, but are delayed for the future as "Project Luther" was announced.
 {: style="text-align: justify"}
 
